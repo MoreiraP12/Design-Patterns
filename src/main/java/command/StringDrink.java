@@ -1,3 +1,5 @@
+package command;
+
 public class StringDrink {
     String drink;
     public StringDrink(String drink) {

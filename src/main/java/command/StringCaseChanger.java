@@ -1,4 +1,6 @@
-public class StringCaseChanger implements StringTransformer{
+package command;
+
+public class StringCaseChanger implements StringTransformer {
     public StringCaseChanger(){
 
     }

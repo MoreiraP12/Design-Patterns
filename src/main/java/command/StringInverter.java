@@ -1,4 +1,8 @@
-public class StringInverter implements StringTransformer{
+package command;
+
+import command.StringDrink;
+
+public class StringInverter implements StringTransformer {
     public StringInverter(){
 
     }
