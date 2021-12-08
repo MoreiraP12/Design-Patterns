@@ -3,8 +3,12 @@ package commandTest;
 import command.Bar;
 import command.HumanClient;
 import command.StringBar;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class HumanClientTest {
 
@@ -13,20 +17,14 @@ public class HumanClientTest {
         Bar bar = new StringBar();
         HumanClient clientMock = Mockito.mock(HumanClient.class);
         bar.addObserver(clientMock);
-        Mockito.verify(clientMock,
-                Mockito.never()).happyHourStarted(bar);
-        Mockito.verify(clientMock,
-                Mockito.never()).happyHourEnded(bar);
+        Mockito.verify(clientMock, Mockito.never()).happyHourStarted(bar);
+        Mockito.verify(clientMock, Mockito.never()).happyHourEnded(bar);
         bar.startHappyHour();
-        Mockito.verify(clientMock,
-                Mockito.times(1)).happyHourStarted(bar);
-        Mockito.verify(clientMock,
-                Mockito.never()).happyHourEnded(bar);
+        Mockito.verify(clientMock, Mockito.times(1)).happyHourStarted(bar);
+        Mockito.verify(clientMock, Mockito.never()).happyHourEnded(bar);
         bar.endHappyHour();
-        Mockito.verify(clientMock,
-                Mockito.times(1)).happyHourStarted(bar);
-        Mockito.verify(clientMock,
-                Mockito.times(1)).happyHourEnded(bar);
+        Mockito.verify(clientMock, Mockito.times(1)).happyHourStarted(bar);
+        Mockito.verify(clientMock, Mockito.times(1)).happyHourEnded(bar);
     }
     @Test
     public void removeObserver() {
@@ -36,9 +34,7 @@ public class HumanClientTest {
         bar.removeObserver(clientMock);
         bar.startHappyHour();
         bar.endHappyHour();
-        Mockito.verify(clientMock,
-                Mockito.never()).happyHourStarted(bar);
-        Mockito.verify(clientMock,
-                Mockito.never()).happyHourEnded(bar);
+        Mockito.verify(clientMock, Mockito.never()).happyHourStarted(bar);
+        Mockito.verify(clientMock, Mockito.never()).happyHourEnded(bar);
     }
 }
